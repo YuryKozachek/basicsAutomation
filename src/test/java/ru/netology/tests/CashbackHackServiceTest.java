@@ -1,15 +1,15 @@
 package ru.netology.tests;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 import ru.netology.service.CashbackHackService;
 
 public class CashbackHackServiceTest {
 
+    CashbackHackService service = new CashbackHackService();
+
     @Test
     public void purchaseOnMinSumNoBonus() {
-
-        CashbackHackService service = new CashbackHackService();
 
         int actual = service.remain(1);
         int expected = 999;
@@ -19,8 +19,6 @@ public class CashbackHackServiceTest {
 
     @Test
     public void purchaseOnMaxSumNoBonus() {
-
-        CashbackHackService service = new CashbackHackService();
 
         int actual = service.remain(999);
         int expected = 1;
@@ -32,11 +30,9 @@ public class CashbackHackServiceTest {
     @Test
     public void purchaseOnBoundary() {
 
-        CashbackHackService service = new CashbackHackService();
-
+        int expected = 0;
         int actual = service.remain(1000);
-        int expected = 1000;
 
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected,actual);
     }
 }
